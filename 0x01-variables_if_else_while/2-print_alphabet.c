@@ -9,7 +9,7 @@
 int main(void)
 
 {
-	char aplhabet = 'a';
+	char alphabet = 'a';
 
 	while (alphabet <= 'z')
 	{
