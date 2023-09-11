@@ -1,8 +1,12 @@
 #include <stdlib.h>
 #include <time.h>
+#include <stdio.h>
+
 /**
- * main -  more headers goes there
- *Return: betty style doc for function main goes there
+ * main - Print the value of the random number n
+ * more headers goes there
+ * betty styledoc for function main goes there
+ * Return: Always 0  (success)
  */
 int main(void)
 {
