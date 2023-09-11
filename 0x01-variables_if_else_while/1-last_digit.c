@@ -7,7 +7,7 @@
  * This programme randomly assign number to n
  * and tell if the last digit is greater than 5,
  * less than 6 or equals 0
- * Return: Always o (Succes)
+ * Return: Always 0 (Succes)
  */
 
 int main(void)
@@ -22,7 +22,7 @@ int main(void)
 	{
 		printf("Last digit of %d is %d and is greater than 5\n", n, digit);
 	}
-	else if (digit < 6 && digit(!0))
+	else if (digit < 6 && digit != 0)
 	{
 		printf("Last digit of %d is %d and is less than 6 and not 0\n", n, digit);
 	}
