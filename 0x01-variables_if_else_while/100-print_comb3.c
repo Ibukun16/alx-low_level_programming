@@ -6,7 +6,7 @@
  */
 int main(void)
 {
-	dig1, dig2;
+	int dig1, dig2;
 
 	for (dig1 = 0; dig1 < 9; dig++)
 	{
