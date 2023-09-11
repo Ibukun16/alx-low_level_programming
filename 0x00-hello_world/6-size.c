@@ -1,8 +1,7 @@
 #include <stdin.h>
 /**
- * main - This program prints the size of files
- *
- * Return: The result is as seen
+ *main - This program prints the size of files
+ *Return: The result is as seen
  */
 
 int main(void)
