@@ -1,4 +1,4 @@
-#include <stdin.h>
+#include <stdio.h>
 /**
  *main - This program prints the size of files
  *Return: The result is as seen
