@@ -1,4 +1,4 @@
-ifndef _MAIN_H_
+#ifndef _MAIN_H_
 #define _MAIN_H_
 /**
  * main - The code that does the magic of printing putchar
