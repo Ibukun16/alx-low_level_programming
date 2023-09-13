@@ -15,7 +15,7 @@ int main(void)
 	while (f < 50)
 	{
 		add = i + j;
-		printf("%ld", sum);
+		printf("%ld", add);
 		if (f != 49)
 		{
 			printf(", ");
