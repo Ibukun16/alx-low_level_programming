@@ -1,9 +1,7 @@
 #include "main.h"
 /**
  * print_times_table - multiplication tables
- *@n: the paratmeter of interest
- * Description: programme that prints the multiplication of numbers
- * Return: Return a complete multiplication table
+ *@n: the paratmeter of interes
  */
 void print_times_table(int n)
 {
@@ -19,24 +17,21 @@ void print_times_table(int n)
 				if (col_no == 0)
 				{
 					_putchar(multi + '0');
-				}
-				else if (multi < 10 && col_no != 0)
+				} else if (multi < 10 && col_no != 0)
 				{
 					_putchar(',');
 					_putchar(' ');
 					_putchar(' ');
 					_putchar(' ');
 					_putchar(multi + '0');
-				}
-				else if (multi >= 10 && multi < 100)
+				} else if (multi >= 10 && multi < 100)
 				{
 					_putchar(',');
 					_putchar(' ');
 					_putchar(' ');
 					_putchar((multi / 10) + '0');
 					_putchar((multi % 10) + '0');
-				}
-				else if (multi >= 100)
+				} else if (multi >= 100)
 				{
 					_putchar(',');
 					_putchar(' ');
