@@ -7,7 +7,7 @@
 
 int main(void)
 {
-	int counter = 3;
+	int counter = 2;
 
 	float m = 1;
 	float n = m + 1;
@@ -15,7 +15,7 @@ int main(void)
 
 	printf("%.0f, ", m);
 	printf("%.0f, ", n);
-	while (counter <= 98)
+	while (counter < 98)
 	{
 		counter++;
 		printf("%.0f", sum);
