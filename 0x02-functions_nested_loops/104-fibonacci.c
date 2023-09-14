@@ -44,6 +44,6 @@ int main(void)
 		rn = pr;
 		c++;
 	}
-	print("\n");
+	printf("\n");
 	return (0);
 }
