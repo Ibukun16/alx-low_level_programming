@@ -24,7 +24,7 @@ int main(void)
 		sum = m + n;
 		if (counter < 98)
 		{
-			print(", ");
+			printf(", ");
 		}
 	}
 	printf("\n");
