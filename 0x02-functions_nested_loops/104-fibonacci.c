@@ -17,7 +17,7 @@ int main(void)
 	printf("%.0f, ", n);
 	while (counter <= 98)
 	{
-		counter++
+		counter++;
 		printf("%.0f", sum);
 		m = n;
 		n = sum;
