@@ -7,26 +7,43 @@
 
 int main(void)
 {
-	int counter = 2;
+	long int c, m, n, sum, dm, rm, dn, rn;
+	long int pd, pr;
 
-	float m = 1;
-	float n = m + 1;
-	float sum = m + n;
-
-	printf("%.0f, ", m);
-	printf("%.0f, ", n);
-	while (counter < 98)
+	sum = 0;
+	m = 0;
+	n = 1;
+	for (c = 0; c < 91; c++)
 	{
-		counter++;
-		printf("%.0f", sum);
+		sum = m + n;
+		printf("%ld", sum);
+		if (c != 97)
+			printf(", ");
 		m = n;
 		n = sum;
-		sum = m + n;
-		if (counter < 98)
-		{
-			printf(", ");
-		}
 	}
-	printf("\n");
+	dm = m / 1000000000;
+	rm = m % 1000000000;
+	dn = n / 1000000000;
+	rn = n % 1000000000;
+	while (c < 98)
+	{
+		pd = dm + dn;
+		pr = rm + rn;
+		if (pr >= 1000000000)
+		{
+			pr %= 1000000000;
+			pd++;
+		}
+		if (c == 97)
+			break;
+		printf(", ");
+		dm = dn;
+		rm = rn;
+		dn = pd;
+		rn = pr;
+		c++;
+	}
+	print("\n");
 	return (0);
 }
