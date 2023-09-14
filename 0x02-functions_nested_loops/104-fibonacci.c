@@ -17,11 +17,15 @@ int main(void)
 	printf("%.0f, ", n);
 	while (counter <= 98)
 	{
-		printf("%.0f, ", sum);
+		counter++
+		printf("%.0f", sum);
 		m = n;
 		n = sum;
 		sum = m + n;
-		counter++;
+		if (counter < 98)
+		{
+			print(", ");
+		}
 	}
 	printf("\n");
 	return (0);
