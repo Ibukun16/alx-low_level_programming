@@ -13,7 +13,7 @@ int main(void)
 	sum = 0;
 	m = 0;
 	n = 1;
-	for (c = 0; c < 91; c++)
+	for (c = 1; c < 91; c++)
 	{
 		sum = m + n;
 		printf("%ld", sum);
