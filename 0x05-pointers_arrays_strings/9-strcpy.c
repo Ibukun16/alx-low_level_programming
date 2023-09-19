@@ -1,7 +1,8 @@
 #include "main.h"
 /**
  * *_strcpy - copy a string to a buffer
- *
+ * @dest: the destination file
+ * @src: the source file to copy from
  * Return: Always 0.
  */
 char *_strcpy(char *dest, char *src)
