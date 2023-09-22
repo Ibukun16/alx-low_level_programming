@@ -7,7 +7,6 @@
  * Description: The function prints a buffer 10 bytes at a time
  *	starting with the byte position, them showing the hex content,
  *	then displaying printable characters.
- * Return: Return success value (0).
  */
 void print_buffer(char *b, int size)
 {
@@ -31,11 +30,15 @@ void print_buffer(char *b, int size)
 		{
 			if ((idx + byte) >= size)
 				break;
-			else if (*(b + idx + byte) >= 31 && *(b + idx + byte) <= 126)
+
+			else if (*(b + idx + byte) >= 31 &&
+				 *(b + idx + byte) <= 126)
 				printf("%c", *(b + idx + byte));
+
 			else
 				printf(".");
 		}
+
 		if (byte >= size)
 			continue;
 		printf("\n");
