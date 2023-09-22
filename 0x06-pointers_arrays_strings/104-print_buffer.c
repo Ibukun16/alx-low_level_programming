@@ -17,8 +17,7 @@ void print_buffer(char *b, int size)
 	{
 		printf("%08x: ", byte);
 
-		idx = 0;
-		while (idx < 10)
+		for (idx = 0; idx < 10; idx++)
 		{
 			if ((idx + byte) >= size)
 				printf(" ");
@@ -26,11 +25,9 @@ void print_buffer(char *b, int size)
 				printf("%02x", *(b + idx + byte));
 			if ((idx % 2) != 0 && idx != 0)
 				printf(" ");
-			idx++;
 		}
 
-		idx = 0;
-		while (idx < 10)
+		for (idx = 0; idx < 10; idx++)
 		{
 			if ((idx + byte) >= size)
 				break;
@@ -38,7 +35,6 @@ void print_buffer(char *b, int size)
 				printf("%c", *(b + idx + byte));
 			else
 				printf(".");
-			idx++;
 		}
 		if (byte >= size)
 			continue;
