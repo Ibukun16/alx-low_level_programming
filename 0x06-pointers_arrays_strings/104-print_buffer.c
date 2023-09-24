@@ -2,33 +2,29 @@
 #include <stdio.h>
 /**
  * print_line - A function that prints line of a buffer
- * @P: The pointer to the buffer to be printed
- * @byte: Number of byte to be printed from the buffer
- * Description: The function prints a buffer 10 bytes at a time
- *	starting with the byte position, them showing the hex content,
- *	then displaying printable characters.
+ * @p: The pointer to the buffer to be printed
+ * @t: Number of byte to be printed from the buffer
  * @l: the line number of the buffer
  * Return: Success (0)
  */
-void print_line(char *P, int byte, int l)
+void print_line(char *p, int t, int l)
 {
 	int j, k;
 
 	for (j = 0; j <= 9; j++)
 	{
-		if (j <= byte)
-			printf("%02x", P[l * 10 + j]);
+		if (j <= t)
+			printf("%02x", p[l * 10 + j]);
 		else
 			printf(" ");
-
 		if (j % 2)
 			putchar(' ');
 	}
 
-	for (k = 0; k  <= byte; k++)
+	for (k = 0; k  <= t; k++)
 	{
-		if (P[l * 10 + k] > 31 && P[l * 10 + k] < 127)
-			putchar(P[l * 10 + k]);
+		if (p[l * 10 + k] > 31 && p[l * 10 + k] < 127)
+			putchar(p[l * 10 + k]);
 		else
 			putchar('.');
 	}
@@ -47,7 +43,7 @@ void print_buffer(char *b, int size)
 
 	for (idx = 0; idx <= (size - 1) / 10 && size; idx++)
 	{
-		printf("%08x: ", idx * 10);
+		printf("%08x:", idx * 10);
 		if (idx < size / 10)
 		{
 			print_line(b, 9, idx);
@@ -60,7 +56,5 @@ void print_buffer(char *b, int size)
 	}
 
 	if (size == 0)
-	{
 		putchar('\n');
-	}
 }
