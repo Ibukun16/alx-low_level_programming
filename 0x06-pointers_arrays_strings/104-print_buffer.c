@@ -14,19 +14,29 @@ void print_line(char *p, int t, int l)
 	for (j = 0; j <= 9; j++)
 	{
 		if (j <= t)
+		{
 			printf("%02x", p[l * 10 + j]);
+		}
 		else
+		{
 			printf(" ");
+		}
 		if (j % 2)
+		{
 			putchar(' ');
+		}
 	}
 
 	for (k = 0; k  <= t; k++)
 	{
 		if (p[l * 10 + k] > 31 && p[l * 10 + k] < 127)
+		{
 			putchar(p[l * 10 + k]);
+		}
 		else
+		{
 			putchar('.');
+		}
 	}
 }
 
@@ -43,7 +53,7 @@ void print_buffer(char *b, int size)
 
 	for (idx = 0; idx <= (size - 1) / 10 && size; idx++)
 	{
-		printf("%08x:", idx * 10);
+		printf("%08x: ", idx * 10);
 		if (idx < size / 10)
 		{
 			print_line(b, 9, idx);
@@ -56,5 +66,7 @@ void print_buffer(char *b, int size)
 	}
 
 	if (size == 0)
+	{
 		putchar('\n');
+	}
 }
