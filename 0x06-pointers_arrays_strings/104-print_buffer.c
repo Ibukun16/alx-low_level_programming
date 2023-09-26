@@ -6,7 +6,7 @@
  * @t: Number of byte to be printed from the buffer
  * @l: the line number of the buffer
  *
- * Return: Success (0)
+ * Return: void
  */
 
 void print_line(char *p, int t, int l)
@@ -35,7 +35,7 @@ putchar('.');
  * @b: The pointer to the buffer to be printed
  * @size: size of the buffer.
  *
- * Return: Success (0)
+ * Return: void
  */
 void print_buffer(char *b, int size)
 {
