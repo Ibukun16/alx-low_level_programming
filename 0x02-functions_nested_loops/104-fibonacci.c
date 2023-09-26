@@ -8,12 +8,10 @@
 int main(void)
 {
 	int c;
-	unsigned long int m, n, sum, dm, rm, dn, rn;
-	unsigned long int pd, pr;
+	unsigned long int m, n, dm, rm, dn, rn;
 
 	m = 1;
 	n = 2;
-	sum = 0;
 
 	printf("%lu", m);
 	for (c = 1; c < 91; c++)
@@ -37,6 +35,7 @@ int main(void)
 		dm = dn - dm;
 		rn = rn + rm;
 		rm = rn - rm;
+		c++;
 	}
 	printf("\n");
 	return (0);
