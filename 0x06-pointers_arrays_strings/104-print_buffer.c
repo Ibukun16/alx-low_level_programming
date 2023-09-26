@@ -5,8 +5,10 @@
  * @p: The pointer to the buffer to be printed
  * @t: Number of byte to be printed from the buffer
  * @l: the line number of the buffer
+ *
  * Return: Success (0)
  */
+
 void print_line(char *p, int t, int l)
 {
 int j, k;
@@ -37,17 +39,17 @@ putchar('.');
  */
 void print_buffer(char *b, int size)
 {
-int idx;
-for (idx = 0; idx <= (size - 1) / 10 && size; idx++)
+int i;
+for (i = 0; i <= (size - 1) / 10 && size; i++)
 {
-printf("%08x: ", idx * 10);
-if (idx < size / 10)
+printf("%08x: ", i * 10);
+if (i < size / 10)
 {
-print_line(b, 9, idx);
+print_line(b, 9, i);
 }
 else
 {
-print_line(b, size % 10 - 1, idx);
+print_line(b, size % 10 - 1, i);
 }
 putchar('\n');
 }
