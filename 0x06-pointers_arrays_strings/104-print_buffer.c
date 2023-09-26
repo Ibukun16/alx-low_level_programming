@@ -8,7 +8,6 @@
  *
  * Return: void
  */
-
 void print_line(char *p, int t, int l)
 {
 	int j, k;
@@ -18,7 +17,7 @@ void print_line(char *p, int t, int l)
 		if (j <= t)
 			printf("%02x", p[l * 10 + j]);
 		else
-			printf(" ");
+			printf("  ");
 		if (j % 2)
 			putchar(' ');
 	}
