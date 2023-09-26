@@ -21,7 +21,7 @@ printf(" ");
 if (j % 2)
 putchar(' ');
 }
-for (k = 0; k  <= t; k++)
+for (k = 0; k <= t; k++)
 {
 if (p[l * 10 + k] > 31 && p[l * 10 + k] < 127)
 putchar(p[l * 10 + k]);
