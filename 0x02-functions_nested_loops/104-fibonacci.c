@@ -11,42 +11,32 @@ int main(void)
 	unsigned long int m, n, sum, dm, rm, dn, rn;
 	unsigned long int pd, pr;
 
-	m = 0;
-	n = 1;
+	m = 1;
+	n = 2;
 	sum = 0;
-	for (c = 0; c < 92; c++)
+
+	printf("%lu", m);
+	for (c = 1; c < 91; c++)
 	{
-		sum = m + n;
-		printf("%lu, ", sum);
+		printf(", %lu", n);
 
-		m = n;
-		n = sum;
+		n = n + m;
+		m = n - m;
 	}
-	dm = m / 10000000000;
-	rm = m % 10000000000;
-	dn = n / 10000000000;
-	rn = n % 10000000000;
+	dm = m / 1000000000;
+	rm = m % 1000000000;
+	dn = n / 1000000000;
+	rn = n % 1000000000;
 
-	c = 93;
+	c = 92;
 	while (c < 99)
 	{
-		pd = dm + dn;
-		pr = rm + rn;
-		if (pr > 9999999999)
-		{
-			pd += 1;
-			pr %= 1000000000;
-		}
-
-		printf("%lu%lu", pd, pr);
-		if (count != 98)
-			printf(", ");
-
-		dm = dn;
-		rm = rn;
-		dn = pd;
-		rn = pr;
-		c++;
+		printf(", %lu", dn + (rn / 1000000000));
+		printf("%lu", rn % 1000000000);
+		dn = dm + dn;
+		dm = dn - dm;
+		rn = rn + rm;
+		rm = rn - rm;
 	}
 	printf("\n");
 	return (0);
