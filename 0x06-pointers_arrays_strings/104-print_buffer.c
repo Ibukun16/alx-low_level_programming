@@ -12,10 +12,11 @@
 void print_line(char *p, int t, int l)
 {
 	int j, k;
+
 	for (j = 0; j <= 9; j++)
 	{
 		if (j <= t)
-			printf("%02x", c[l * 10 + j]);
+			printf("%02x", p[l * 10 + j]);
 		else
 			printf(" ");
 		if (j % 2)
@@ -24,17 +25,37 @@ void print_line(char *p, int t, int l)
 	for (k = 0; k <= t; k++)
 	{
 		if (p[l * 10 + k] > 31 && p[l * 10 + k] < 127)
-			putchar(c[l * 10 + k]);
+			putchar(p[l * 10 + k]);
 		else
 			putchar('.');
 	}
 }
 
-
-r - A function that prints buffer
- * @b: The pointer to the buffer to be printed
+/**
+ * print_buffer - A function that prints a buffer
+ * @b: The pointer to the buffer
  * @size: size of the buffer.
  *
  * Return: void
  */
+void print_buffer(char *b, int size)
+{
+	int i = 0;
 
+	while (i <= (size - 1) / 10 && size)
+	{
+		printf("%08x: ", i * 10);
+		if (i < size / 10)
+		{
+			print_line(b, 9, i);
+		}
+		else
+		{
+			print_line(b, size % 10 - 1, i);
+		}
+		putchar('\n');
+		i++;
+	}
+	if (size == 0)
+		putchar('\n');
+}
