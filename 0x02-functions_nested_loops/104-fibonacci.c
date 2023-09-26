@@ -7,37 +7,41 @@
 
 int main(void)
 {
-	long int c, m, n, sum, dm, rm, dn, rn;
-	long int pd, pr;
+	int c;
+	unsigned long int m, n, sum, dm, rm, dn, rn;
+	unsigned long int pd, pr;
 
-	sum = 0;
 	m = 0;
 	n = 1;
-	for (c = 1; c < 91; c++)
+	sum = 0;
+	for (c = 0; c < 92; c++)
 	{
 		sum = m + n;
-		printf("%ld", sum);
-		if (c != 97)
-			printf(", ");
+		printf("%lu, ", sum);
+
 		m = n;
 		n = sum;
 	}
-	dm = m / 1000000000;
-	rm = m % 1000000000;
-	dn = n / 1000000000;
-	rn = n % 1000000000;
-	while (c < 98)
+	dm = m / 10000000000;
+	rm = m % 10000000000;
+	dn = n / 10000000000;
+	rn = n % 10000000000;
+
+	c = 93;
+	while (c < 99)
 	{
 		pd = dm + dn;
 		pr = rm + rn;
-		if (pr >= 1000000000)
+		if (pr > 9999999999)
 		{
+			pd += 1;
 			pr %= 1000000000;
-			pd++;
 		}
-		if (c == 97)
-			break;
-		printf(", ");
+
+		printf("%lu%lu", pd, pr);
+		if (count != 98)
+			printf(", ");
+
 		dm = dn;
 		rm = rn;
 		dn = pd;
