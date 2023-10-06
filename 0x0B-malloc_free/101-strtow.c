@@ -57,7 +57,7 @@ char **strtow(char *str)
 			if (c)
 			{
 				end = i;
-				ph = (char *)malloc((sizeof(char) * c) + 1);
+				ph = (char *)malloc(sizeof(char) * (c + 1));
 				if (ph == NULL)
 					return (NULL);
 				while (strt < end)
