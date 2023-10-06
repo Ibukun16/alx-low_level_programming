@@ -46,7 +46,7 @@ char **strtow(char *str)
 	w = word_count(str);
 	if (w == 0)
 		return (NULL);
-	m = (char **)malloc((sizeof(char *) * w) + 1);
+	m = (char **)malloc(sizeof(char *) * (w + 1));
 	if (m == NULL)
 		return (NULL);
 
