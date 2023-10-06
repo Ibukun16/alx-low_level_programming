@@ -31,7 +31,7 @@ int word_count(char *strn)
 }
 
 /**
- * **strtow - A function that split worrds in astring
+ * **strtow - A function that split worrds in a string
  * @str: the string to split
  *
  * Return: a pointer to an array of strings
@@ -46,7 +46,7 @@ char **strtow(char *str)
 	w = word_count(str);
 	if (w == 0)
 		return (NULL);
-	m = (char **)malloc((sizeof(char *) + w) + 1);
+	m = (char **)malloc((sizeof(char *) * w) + 1);
 	if (m == NULL)
 		return (NULL);
 
