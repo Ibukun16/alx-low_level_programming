@@ -19,7 +19,7 @@ int find_root(int n, int r)
 /**
  * _sqrt_recursion - A function that call on another function to find
  * the root of an integer n.
- * @n the integer whose root we are to find
+ * @n: the integer whose root we are to find
  *
  * Return: The natural root of n
  */
