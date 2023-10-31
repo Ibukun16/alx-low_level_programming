@@ -4,13 +4,13 @@
  * main - A function that prints all the arguments it receives
  * @argv: An array containing argument c
  * @argc: Count of the argument
- * 
+ *
  * Return: Content of the array.
  */
 int main(int argc, char *argv[])
 {
 	int i = 0;
-	
+
 	while (i < argc)
 	{
 		printf("%s\n", argv[i]);
