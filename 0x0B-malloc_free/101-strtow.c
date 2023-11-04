@@ -39,7 +39,7 @@ char **strtow(char *str)
 	c = word_count(str);
 	if (c <= 1)
 		return (NULL);
-	ar = (char **)malloc((sizeof(char *) * c) + 1);
+	ar = (char **)malloc(sizeof(char *) * c);
 	if (ar == NULL)
 		return (NULL);
 	ar[c - 1] = NULL;
@@ -50,7 +50,7 @@ char **strtow(char *str)
 			for (j = 1; str[i + j] != ' ' && str[i + j]; j++)
 				;
 			j++;
-			ar[temp] = (char *)malloc((sizeof(char) * j) + 1);
+			ar[temp] = (char *)malloc(sizeof(char) * j);
 			j--;
 			if (ar[temp] == NULL)
 			{
