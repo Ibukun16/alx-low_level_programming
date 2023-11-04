@@ -20,14 +20,13 @@ char *argstostr(int ac, char **av)
 	for (i = 0; (i < ac); i++)
 	{
 		for (j = 0; av[i][j]; j++)
-		{
 			l++;
-			l++;
-		}
+		l++;
 	}
 	arg = malloc((sizeof(char) * l) + 1);
 	if (arg == NULL)
 		return (NULL);
+
 	for (a = 0; a < ac; a++)
 	{
 		for (b = 0; av[a][b]; b++)
