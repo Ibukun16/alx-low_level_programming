@@ -49,7 +49,8 @@ int op_div(int a, int b)
 }
 
 /**
- * op_mod - A function that calculate the remainder of the division of two integers
+ * op_mod - A function that calculate the remainder of the
+ * division of two integers
  * @a: first integer
  * @b: second integer
  *
