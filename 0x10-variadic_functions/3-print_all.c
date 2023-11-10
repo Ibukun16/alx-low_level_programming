@@ -71,9 +71,12 @@ void print_all(const char * const format, ...)
 	char *s = "";
 
 	va_start(valist, format);
-	for (i = 0; format && format[i]; i++)
+
+	i = 0;
+	while (format && format[i])
 	{
-		for (j = 0; t[j].x != NULL; j++)
+		j = 0;
+		while (t[j].x != NULL)
 		{
 			if (*(t[j].x) == format[i])
 			{
@@ -82,7 +85,9 @@ void print_all(const char * const format, ...)
 				s = ", ";
 				break;
 			}
+			j++;
 		}
+		i++;
 	}
 	va_end(valist);
 	printf("\n");
