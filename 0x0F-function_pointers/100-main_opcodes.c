@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * main - A program that prints the opcodes of its own main function
+ * main - A program that prints the opcodes of
+ * its own main function
  * @argc: The count of number of arguments
  * @argv: The array containing the argument
  *
@@ -26,8 +27,11 @@ int main(int argc, char *argv[])
 	}
 
 	a = (char *)main;
-	for (i = 0; i < bytes - 1; i++)
+
+	for (i = 0; i < (bytes - 1); i++)
+	{
 		printf("%02hhx ", a[i]);
-	printf("%hhx\n", a[i]);
+	}
+	printf("%02hhx\n", a[i]);
 	return (0);
 }
