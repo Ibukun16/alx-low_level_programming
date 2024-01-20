@@ -2,8 +2,8 @@
 #include <stdio.h>
 /**
  * main - A program that prints its own name.
- * argc: The count of the number of argument supplied to the command line.
- * argv: An array vector of the argument strings.
+ * @argc: The count of the number of argument supplied to the command line.
+ * @argv: An array vector of the argument strings.
  *
  * Return: 0 for success.
  */
