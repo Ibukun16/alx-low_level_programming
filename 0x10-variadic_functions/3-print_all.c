@@ -40,6 +40,7 @@ void print_all(const char * const format, ...)
 					printf("%s%s", strn, separator);
 				else
 					printf("(nil)");
+				break;
 		}
 		j++;
 	}
