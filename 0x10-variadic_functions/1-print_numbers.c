@@ -3,7 +3,7 @@
 #include <stdarg.h>
 /**
  * print_numbers - A function that print numbers.
- * @*separator:A pointer to the string that contains the separator.
+ * @separator: A pointer to the string that contains the separator.
  * @n: The number of integers that passed to the function.
  *
  * Return: 0 for success.
