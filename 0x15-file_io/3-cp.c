@@ -19,27 +19,17 @@ int cp(char *file_from, char *file_to)
 
 	rd = read(fd, buff, 1024);
 	if (fd == -1 || rd == -1)
-	{
-		free(buff);
 		return (98);
-	}
 	while (rd > 0)
 	{
 		wrt = write(des, buff, rd);
 		if (wrt == -1)
-		{
-			free(buff);
 			return (99);
-		}
 		rd = read(fd, buff, 1024);
 		if (rd == -1)
-		{
-			free(buff);
 			return (98);
-		}
 		des = open(file_to, O_WRONLY | O_APPEND);
 	}
-	free(buff);
 	close_file(fd);
 	close_file(des);
 
@@ -58,10 +48,7 @@ void close_file(int d)
 
 	cls = close(d);
 	if (cls == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", d);
-		exit(100);
-	}
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", d), exit(100);
 }
 
 /**
