@@ -8,67 +8,86 @@
  */
 int cp(char *file_from, char *file_to)
 {
-	int op_src, op_des, wrt, rd, src_cl, des_cl;
-	char *buff[1024];
+	int fd, des, wrt, rd;
+	char *buff;
 
-	op_src = open(file_from, O_RDONLY);
-
-	rd = read(op_src, buff, 1024);
-	if (op_src == -1 || rd == -1)
-		return (98);
-
-	op_des = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	if (op_des == -1)
+	des = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	buff = malloc(sizeof(char) * 1024);
+	if (des == -1 || buff == NULL)
 		return (99);
 
-	while (rd == 1)
+	fd = open(file_from, O_RDONLY);
+
+	rd = read(fd, buff, 1024);
+	if (fd == -1 || rd == -1)
 	{
-		wrt = write(op_des, buff, rd);
+		free(buff);
+		return (98);
+	}
+	while (rd > 0)
+	{
+		wrt = write(des, buff, rd);
 		if (wrt == -1)
+		{
+			free(buff);
 			return (99);
-		rd = read(op_src, buff, 1024);
+		}
+		rd = read(fd, buff, 1024);
 		if (rd == -1)
+		{
+			free(buff);
 			return (98);
+		}
+		des = open(file_to, O_WRONLY | O_APPEND);
 	}
-	src_cl = close(op_src);
-	if (src_cl == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", src_cl);
-		return (100);
-	}
-	des_cl = close(op_des);
-	if (des_cl == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", des_cl);
-		return (100);
-	}
+	free(buff);
+	close_file(fd);
+	close_file(des);
+
 	return (0);
 }
 
 /**
+ * close_file - A function that closes open file descriptor
+ * @d: The open file descriptor.
+ *
+ * Return: close value.
+ */
+void close_file(int d)
+{
+	int cls;
+
+	cls = close(d);
+	if (cls == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", d);
+		exit(100);
+	}
+}
+
+/**
  * main - The main function that copy file from source to destination
- * @argc; The count of the argument
+ * @argc: The count of the argument
  * @argv: Double pointer to the argument vector
  *
  * Return: 0 on success.
  */
 int main(int argc, char **argv)
 {
-	int count;
+	int cpy;
 
 	if (argc != 3)
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit (97);
-	count = cp(argv[1], argv[2]);
-	switch (count)
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
+
+	cpy = cp(argv[1], argv[2]);
+	switch (cpy)
 	{
-		case (98):
-			dprintf(STDERR_FILENO, "Error: can't read from file %s\n", argv[1]);
-			exit (98);
+		case(98):
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			exit(98);
 		case (99):
-			dprintf(STDERR_FILENO, "Error: can't write to file %s\n", argv[2]);
-			exit (99);
-		case (100): 
-			exit (100);
+			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
+			exit(99);
 		default:
 			return (0);
 	}
