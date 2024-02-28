@@ -16,20 +16,18 @@ int cp(char *file_from, char *file_to)
 		return (99);
 
 	fd = open(file_from, O_RDONLY);
-
 	rd = read(fd, buff, 1024);
-	if (fd == -1 || rd == -1)
-		return (98);
-	while (rd > 0)
+	do
 	{
+		if (fd == -1 || rd == -1)
+			return (98);
 		wrt = write(des, buff, rd);
 		if (wrt == -1)
 			return (99);
 		rd = read(fd, buff, 1024);
-		if (rd == -1)
-			return (98);
 		des = open(file_to, O_WRONLY | O_APPEND);
-	}
+	}while (r > 0);
+
 	close_file(fd);
 	close_file(des);
 
@@ -69,11 +67,9 @@ int main(int argc, char **argv)
 	switch (cpy)
 	{
 		case(98):
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-			exit(98);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]), exit(98);
 		case (99):
-			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
-			exit(99);
+			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]), exit(99);
 		default:
 			return (0);
 	}
