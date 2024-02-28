@@ -26,7 +26,7 @@ int cp(char *file_from, char *file_to)
 			return (99);
 		rd = read(fd, buff, 1024);
 		des = open(file_to, O_WRONLY | O_APPEND);
-	}while (r > 0);
+	}while (rd > 0);
 
 	close_file(fd);
 	close_file(des);
