@@ -8,6 +8,19 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <elf.h>
+
+void check_if_elf(unsigned char *identfr);
+void prnt_mgc_no(unsigned char *identfr);
+void prnt_class(unsigned char *identfr);
+void prnt_data(unsigned char *identfr);
+void prnt_version(unsigned char *identfr);
+void prnt_osabi(unsigned char *identfr);
+void prnt_abi(unsigned char *identfr);
+void prnt_typ(unsigned int typ, unsigned char *identfr);
+void prnt_entry(unsigned long int ntry, unsigned char *identfr);
+void close_elf(int elf_file);
+int main(int __attribute__((__unused__)) argc, char *argv[]);
 
 int _putchar(char c);
 ssize_t read_textfile(const char *filename, size_t letters);
