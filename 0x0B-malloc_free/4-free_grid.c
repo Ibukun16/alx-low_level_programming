@@ -3,7 +3,7 @@
 
 /**
  * free_grid - A function that free memory space already created.
- * @**grid: Pointer to the grid space
+ * @grid: Pointer to the grid space
  * @height: The height of the array
  *
  * Return: Void
