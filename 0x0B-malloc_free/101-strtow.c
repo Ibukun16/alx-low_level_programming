@@ -19,7 +19,7 @@ char **strtow(char *str)
 	words = count_words(str);
 	if (words <= 1)
 		return (NULL);
-	mem = (char **)malloc(sizeof(char *) * (words + 1));
+	mem = (char **)malloc(sizeof(char *) * words);
 	if (mem == NULL)
 		return (NULL);
 	mem[words - 1] = NULL;
@@ -30,7 +30,7 @@ char **strtow(char *str)
 			for (x = 1; str[i + x] && str[i + x] != ' '; x++)
 				;
 			x++;
-			mem[count] = (char *)malloc(sizeof(char) * (x + 1));
+			mem[count] = (char *)malloc(sizeof(char) * x);
 			x--;
 			if (mem[count] == NULL)
 			{
