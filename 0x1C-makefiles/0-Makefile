@@ -1,0 +1,4 @@
+all: school
+
+%: %.c
+	gcc main.c $< -o $@
