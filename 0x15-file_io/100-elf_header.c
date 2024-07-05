@@ -92,7 +92,7 @@ void prnt_class(unsigned char *e_ident)
  */
 void prnt_data(unsigned char *e_ident)
 {
-        printf("  Data:                                 ");
+        printf("  Data:				");
 
         switch (e_ident[EI_DATA])
 	{
@@ -108,6 +108,7 @@ void prnt_data(unsigned char *e_ident)
 	default:
 		printf("<unknown: %x>\n", e_ident[EI_CLASS]);
 	}
+}
 
 /**
  * prnt_version - A function that prints the version of the ELF header
@@ -117,7 +118,7 @@ void prnt_data(unsigned char *e_ident)
  */
 void prnt_version(unsigned char *e_ident)
 {
-	printf("  Version:                            %d",
+	printf("  Version:			%d",
 			e_ident[EI_VERSION]);
 
 	switch (e_ident[EI_VERSION])
@@ -139,7 +140,7 @@ void prnt_version(unsigned char *e_ident)
  */
 void prnt_osabi(unsigned char *e_ident)
 {
-	printf("  OS/ABI:                                ");
+	printf("  OS/ABI:				");
 
 	switch (e_ident[EI_OSABI])
 	{
@@ -185,7 +186,7 @@ void prnt_osabi(unsigned char *e_ident)
  */
 void prnt_abi(unsigned char *e_ident)
 {
-	printf("  ABI Version:                         %d\n",
+	printf("  ABI Version:				%d\n",
 		e_ident[EI_ABIVERSION]);
 }
 
@@ -201,7 +202,7 @@ void prnt_typ(unsigned int e_type, unsigned char *e_ident)
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 		e_type >>= 8;
 
-	printf("  Type:                             ");
+	printf("  Type:					");
 
 	switch (e_type)
 	{
@@ -233,7 +234,7 @@ void prnt_typ(unsigned int e_type, unsigned char *e_ident)
  */
 void prnt_entry(unsigned long int e_entry, unsigned char *e_ident)
 {
-	printf("  Entry point address:              ");
+	printf("  Entry point address:			");
 
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 	{
