@@ -25,9 +25,10 @@ void check_if_elf(unsigned char *e_ident)
 		if (e_ident[i] != 127 && e_ident[i] != 'E' &&
 		    e_ident[i] != 'L' && e_ident[i] != 'F')
 		{
-			dprintf(STDERR_FILENO, "Error: Not an ELF file\n"), exit(98);
-			i++;
+			dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
+			exit(98);
 		}
+		i++;
 	}
 }
 /**
