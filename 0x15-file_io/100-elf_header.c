@@ -44,7 +44,7 @@ void prnt_magic_no(unsigned char *e_ident)
 {
 	int n = 0;
 
-	printf("  Magic:    ");
+	printf("  Magic:   ");
 
 	while (n < EI_NIDENT)
 	{
@@ -66,7 +66,7 @@ void prnt_magic_no(unsigned char *e_ident)
  */
 void prnt_class(unsigned char *e_ident)
 {
-	printf("  Class:                              ");
+	printf("  Class:                             ");
 
 	switch (e_ident[EI_CLASS])
 	{
@@ -92,7 +92,7 @@ void prnt_class(unsigned char *e_ident)
  */
 void prnt_data(unsigned char *e_ident)
 {
-        printf("  Data:                               ");
+        printf("  Data:                              ");
 
         switch (e_ident[EI_DATA])
 	{
@@ -118,7 +118,7 @@ void prnt_data(unsigned char *e_ident)
  */
 void prnt_version(unsigned char *e_ident)
 {
-	printf("  Version:                            %d",
+	printf("  Version:                           %d",
 			e_ident[EI_VERSION]);
 
 	switch (e_ident[EI_VERSION])
@@ -140,7 +140,7 @@ void prnt_version(unsigned char *e_ident)
  */
 void prnt_osabi(unsigned char *e_ident)
 {
-	printf("  OS/ABI:                             ");
+	printf("  OS/ABI:                            ");
 
 	switch (e_ident[EI_OSABI])
 	{
@@ -202,7 +202,7 @@ void prnt_typ(unsigned int e_type, unsigned char *e_ident)
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 		e_type >>= 8;
 
-	printf("  Type:                               ");
+	printf("  Type:                              ");
 
 	switch (e_type)
 	{
