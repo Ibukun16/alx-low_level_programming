@@ -11,7 +11,7 @@
 #include <elf.h>
 
 void check_if_elf(unsigned char *identfr);
-void prnt_mgc_no(unsigned char *identfr);
+void prnt_magic_no(unsigned char *identfr);
 void prnt_class(unsigned char *identfr);
 void prnt_data(unsigned char *identfr);
 void prnt_version(unsigned char *identfr);
