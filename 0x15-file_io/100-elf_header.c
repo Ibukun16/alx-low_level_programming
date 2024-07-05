@@ -31,6 +31,7 @@ void check_if_elf(unsigned char *e_ident)
 		i++;
 	}
 }
+
 /**
  * prnt_magic_no - A function that print magic number of an ELF file.
  * @e_ident: A pointer to an array containing the magic number of the Elf file.
@@ -43,7 +44,7 @@ void prnt_magic_no(unsigned char *e_ident)
 {
 	int n = 0;
 
-	printf(" Magic:    ");
+	printf("  Magic:    ");
 
 	while (n < EI_NIDENT)
 	{
@@ -65,7 +66,7 @@ void prnt_magic_no(unsigned char *e_ident)
  */
 void prnt_class(unsigned char *e_ident)
 {
-	printf(" Class:				");
+	printf("  Class:                               ");
 
 	switch (e_ident[EI_CLASS])
 	{
@@ -91,7 +92,7 @@ void prnt_class(unsigned char *e_ident)
  */
 void prnt_data(unsigned char *e_ident)
 {
-        printf(" Data:				");
+        printf("  Data:                                 ");
 
         switch (e_ident[EI_DATA])
 	{
@@ -116,7 +117,7 @@ void prnt_data(unsigned char *e_ident)
  */
 void prnt_version(unsigned char *e_ident)
 {
-	printf(" Version:				%d",
+	printf("  Version:                            %d",
 			e_ident[EI_VERSION]);
 
 	switch (e_ident[EI_VERSION])
@@ -138,7 +139,7 @@ void prnt_version(unsigned char *e_ident)
  */
 void prnt_osabi(unsigned char *e_ident)
 {
-	printf(" OS/ABI:				");
+	printf("  OS/ABI:                                ");
 
 	switch (e_ident[EI_OSABI])
 	{
@@ -184,7 +185,7 @@ void prnt_osabi(unsigned char *e_ident)
  */
 void prnt_abi(unsigned char *e_ident)
 {
-	printf(" ABI Version:				%d\n",
+	printf("  ABI Version:                         %d\n",
 		e_ident[EI_ABIVERSION]);
 }
 
@@ -200,7 +201,7 @@ void prnt_typ(unsigned int e_type, unsigned char *e_ident)
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 		e_type >>= 8;
 
-	printf(" Type:				      ");
+	printf("  Type:                             ");
 
 	switch (e_type)
 	{
@@ -232,7 +233,7 @@ void prnt_typ(unsigned int e_type, unsigned char *e_ident)
  */
 void prnt_entry(unsigned long int e_entry, unsigned char *e_ident)
 {
-	printf(" Entry point address:			");
+	printf("  Entry point address:              ");
 
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 	{
