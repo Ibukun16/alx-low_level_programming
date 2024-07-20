@@ -27,8 +27,8 @@ int exponential_search(int *array, size_t size, int value)
 }
 
 /**
- * binary_search_helper - A fucntion that searches for a value in a sorted of integers
- *			using binary search.
+ * binary_search_helper - A fucntion that searches for a value
+ *			in a sorted of integers using binary search.
  * @array: A pointer to the first element of the array to search.
  * @high: The last index of the sub-array to search
  * @low: The first index of the sub-array to search
@@ -48,7 +48,7 @@ int binary_search_helper(int *array, size_t low, size_t high, int value)
 		for (c = low; c < high; c++)
 			printf("%d, ", array[c]);
 		printf("%d\n", array[c]);
-		
+
 		c = low + (high - low) / 2;
 		if (array[c] == value)
 			return (c);
