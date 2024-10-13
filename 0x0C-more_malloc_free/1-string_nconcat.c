@@ -34,12 +34,12 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (mem == NULL)
 		return (NULL);
 
-	while (len1)
+	while (a < len1)
 	{
 		mem[a] = s1[a];
 		a++;
 	}
-	while (n && n < (len1 + n))
+	while (n && a < (len1 + n))
 		mem[a++] = s2[b++];
 
 	mem[a] = '\0';
