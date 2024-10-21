@@ -6,7 +6,7 @@
  * @array: The array to iterate over
  * @size: The size of the array
  * @cmp: pointer to the array to compare values
- * 
+ *
  * Return: Index to the first element in the array where
  * the cmp function does not return 0 where no element match,
  * else -1.
