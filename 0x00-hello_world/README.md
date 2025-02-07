@@ -1,1 +1,1 @@
-My readme file for hello world C programming
+This file describe the content of the Hello World project director.
