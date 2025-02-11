@@ -1,34 +1,25 @@
 #include <stdlib.h>
-#include <time.h>
 #include <stdio.h>
-
+#include <time.h>
 /**
- * main - Print the last digit in n
- * This programme randomly assign number to n
- * and tell if the last digit is greater than 5,
- * less than 6 or equals 0
- * Return: Always 0 (Succes)
+ * main - The entry point to the program
+ *
+ * Description: Program that prints and describe the last digit of a random no
+ *
+ * Return: 0 for successful execution always
  */
-
 int main(void)
 {
-	int n;
-	int digit;
+	int n, dgt;
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
-	digit = n % 10;
-	if (digit > 5)
-	{
-		printf("Last digit of %d is %d and is greater than 5\n", n, digit);
-	}
-	else if (digit < 6 && digit != 0)
-	{
-		printf("Last digit of %d is %d and is less than 6 and not 0\n", n, digit);
-	}
+	dgt = n % 10;
+	if (dgt > 5)
+		printf("Last digit of %d is %d and is greater than 5\n", n, dgt);
+	else if (dgt < 6 && dgt != 0)
+		printf("Last digit of %d is %d and is less than 6 and not 0\n", n, dgt);
 	else
-	{
-		printf("Last digit of %d is %d and is 0\n", n, digit);
-	}
+		printf("Last digit of %d is %d and is 0\n", n, dgt);
 	return (0);
 }

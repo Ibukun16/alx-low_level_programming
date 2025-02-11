@@ -1,21 +1,18 @@
 #include <stdio.h>
 
 /**
- * main - alphabet game
- * print alphabet in lower case followed by a line
- * Return: Always 0 (success)
+ * main - The entry point to the program that prints the alphabet.
+ *
+ * Description: A program that prints the alphabet in lower case.
+ *
+ * Return: 0 for successful execution always
  */
-
 int main(void)
-
 {
-	char alphabet = 'a';
+	char alp;
 
-	while (alphabet <= 'z')
-	{
-		putchar(alphabet);
-		alphabet++;
-	}
-	putchar('\n');
+	for (alp = 'a'; alp <= 'z'; alp++)
+		putchar(alp);
+	putchar ('\n');
 	return (0);
 }

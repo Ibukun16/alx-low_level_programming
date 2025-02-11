@@ -1,29 +1,33 @@
 #include <stdio.h>
-/**
- * main - print a unique combination of two numbers
- * Return: Success must be achieved
- */
 
+/**
+ * main - Print all possible combinations of two two-digits.
+ *
+ * Descript: Program that prints all possible combinations of two two-digits.
+ *
+ * Return: 0 for successful execution always
+ */
 int main(void)
 {
-	int num1, num2;
+	int num, digit;
 
-	for (num1 = 0; num1 <= 98; num1++)
+	for (num = 0; num < 99; num++)
 	{
-		for (num2 = num1 + 1; num2 <= 99; num2++)
+		for (digit = num + 1; digit <= 99; digit++)
 		{
-			putchar((num1 / 10) + '0');
-			putchar((num1 % 10) + '0');
+			putchar((num / 10) + '0');
+			putchar((num % 10) + '0');
 			putchar(' ');
-			putchar((num2 / 10) + '0');
-			putchar((num2 % 10) + '0');
+			putchar((digit / 10) + '0');
+			putchar((digit % 10) + '0');
 
-			if (num1 == 98 && num2 == 99)
+			if (num == 98 && digit == 99)
 				continue;
+
 			putchar(',');
 			putchar(' ');
 		}
 	}
-	putchar('\n');
+	putchar ('\n');
 	return (0);
 }

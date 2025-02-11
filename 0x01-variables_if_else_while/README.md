@@ -1,1 +1,1 @@
-Variables, if, else and while programming
+This project directory contains practice exercises on the use of Variables, if, else and while statements in C programming. ALX is a very interesting and insightful program. You need grit and tenacity to accomplish the goals of the program.

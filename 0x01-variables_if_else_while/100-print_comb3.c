@@ -1,27 +1,31 @@
 #include <stdio.h>
 
 /**
- * main - Print number combinations without repitition
- * Return: Being successful is the goal
+ * main - Print all possible combinations of two digits.
+ *
+ * Description: Program that print all possible combinations of two digits.
+ *
+ * Return: 0 for successful execution always
  */
 int main(void)
 {
-	int dig1, dig2;
+	int lead;
+	int num;
 
-	for (dig1 = 0; dig1 < 9; dig1++)
+	for (lead = 0;  lead < 10; lead++)
 	{
-		for (dig2 = dig1 + 1; dig2 < 10; dig2++)
+		for (num = lead + 1; num < 10; num++)
 		{
-			putchar((dig1 % 10) + '0');
-			putchar((dig2 % 10) + '0');
+			putchar((lead % 10) + '0');
+			putchar((num % 10) + '0');
 
-			if (dig1 == 8 && dig2 == 9)
-				continue;
-
-			putchar(',');
-			putchar(' ');
+			if (lead != 8 || num != 9)
+			{
+				putchar(',');
+				putchar(' ');
+			}
 		}
 	}
-	putchar('\n');
+	putchar ('\n');
 	return (0);
 }

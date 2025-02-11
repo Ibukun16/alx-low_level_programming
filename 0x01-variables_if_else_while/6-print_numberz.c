@@ -1,19 +1,21 @@
 #include <stdio.h>
 
 /**
- * main - print all single digit numbers using putchar
- * Return: Always successful
+ * main - The entry point to the program that prints single digit numbers.
+ *
+ * Description: This program prints all single digit numbers of base 10.
+ *
+ * Return: 0 for successful execution always
  */
-
 int main(void)
 {
 	int num = 0;
 
-	while (num < 10)
-	{
-		putchar ((num % 10) + '0');
+	do {
+		putchar((num % 10) + '0');
 		num++;
-	}
-	putchar('\n');
+	} while (num < 10);
+
+	putchar ('\n');
 	return (0);
 }

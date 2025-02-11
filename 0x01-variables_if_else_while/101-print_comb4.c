@@ -1,33 +1,34 @@
 #include <stdio.h>
-/**
- * main - Print single combination of 3 digits numbers
- * Return: Must be successful
- */
 
+/**
+ * main - Print all possible combinations of three digits.
+ *
+ * Description: Program that print all possible combinations of three digits.
+ *
+ * Return: 0 for successful execution always
+ */
 int main(void)
 {
-	int dig1, dig2, dig3;
+	int lead, num, dgt;
 
-	for (dig1 = 0; dig1 < 8; dig1++)
+	for (lead = 0;  lead < 10; lead++)
 	{
-		for (dig2  = dig1 + 1; dig2 < 9; dig2++)
+		for (num = lead + 1; num < 10; num++)
 		{
-			for (dig3 = dig2 + 1; dig3 < 10; dig3++)
+			for (dgt = num + 1; dgt < 10; dgt++)
 			{
-				putchar((dig1 % 10) + '0');
-				putchar((dig2 % 10) + '0');
-				putchar((dig3 % 10) + '0');
+				putchar((lead % 10) + '0');
+				putchar((num % 10) + '0');
+				putchar((dgt % 10) + '0');
 
-				if (dig1 == 7 && dig2 == 8 && dig3 == 9)
-					continue;
-
-				putchar(',');
-				putchar(' ');
-
+				if (lead != 7 || num != 8 || dgt != 9)
+				{
+					putchar(',');
+					putchar(' ');
+				}
 			}
 		}
 	}
-	putchar('\n');
-
+	putchar ('\n');
 	return (0);
 }
