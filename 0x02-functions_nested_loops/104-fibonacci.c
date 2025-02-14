@@ -6,42 +6,37 @@
  * Return: Return success(0).
  */
 
-int fibonacci(long unsigned int val)
+int fibonacci(unsigned long int val)
 {
-	unsigned long int count, overfl = 0, tmp1, tmp2;
+	unsigned long int count, overfl = 0;
 	unsigned long int n1 = 1, n2 = 0, next1 = 2, next2 = 0;
 
 	printf("%lu, %lu", n1, next1);
 	for (count = 3; count <= val; count++)
 	{
-		n1 += next1 + overfl;
+		next1 += n1 + overfl;
 
-		if (n1 > 999999999)
+		if (next1 > 999999999)
 		{
 			overfl = 1;
-			n1 %= 1000000000;
+			next1 %= 1000000000;
 		}
 
-		n2 += next2 + overfl;
+		next2 += n2 + overfl;
 
-		if (n2 > 999999999)
+		if (next2 > 999999999)
 		{
 			overfl = 1;
-			n2 %= 1000000000;
+			next2 %= 1000000000;
 		}
 
-		if (n2 > 0)
-			printf(", %lu%09lu", n2, n1);
+		if (next2 > 0)
+			printf(", %lu%09lu", next2, next1);
 		else
-			printf(", %lu", n1);
+			printf(", %lu", next1);
 
-		tmp1 = next1;
-		next1 = n1;
-		n1 = tmp1;
-
-		tmp2 = next2;
-		next2 = n2;
-		n2 = tmp2;
+		n1 = next1 - n1;
+		n2 = next2 - n2;
 	}
 	printf("\n");
 	return (0);
