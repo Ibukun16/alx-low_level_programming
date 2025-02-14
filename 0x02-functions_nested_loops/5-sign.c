@@ -1,13 +1,10 @@
 #include "main.h"
 
 /**
- * print_sign - identify the sign of numbers
- * @+: positive sign
- * @-: negative sign
- * @n: number parameter to check its sign
+ * print_sign - A function that prints the sign of a number
+ * @n: The given number
  *
- * Description: Programme code that prints sign of a number
- * Return: Always 0 (successful).
+ * Return: 1 for positive, 0 for zero and -1 for negative.
  */
 int print_sign(int n)
 {

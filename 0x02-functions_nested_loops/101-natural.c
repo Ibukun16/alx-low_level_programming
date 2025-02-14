@@ -1,21 +1,20 @@
+#include "main.h"
 #include <stdio.h>
+
 /**
- * main - list of all natural numbers below 1024
- * that are multiples of 3 and 5
- * Return: Return multiples of 3 and 5.
+ * main - Entry point of the function that compute multiples of natural num
+ *
+ * Return: Result of computation
  */
 int main(void)
 {
-	int i, sum = 0;
+	int n, sum = 0;
 
-	for (i = 0; i < 1024; i++)
+	for (n = 0; n < 1024; n++)
 	{
-		if (i % 3 == 0 || i % 5 == 0)
-		{
-			sum += i;
-		}
+		if (n % 3 == 0 || n % 5 == 0)
+			sum += n;
 	}
-
-	printf("%d\n", sum);
+	printf("%d\n", sum);  
 	return (0);
 }

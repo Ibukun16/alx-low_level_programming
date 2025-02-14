@@ -1,28 +1,28 @@
 #include "main.h"
 /**
- * times_table - times table
- * Return: Always a succes.
+ * times_table - A function that prints the times table
+ *
+ * Return: 0 for successful execution
  */
 void times_table(void)
 {
-	int column, row, product;
+	int col, row, res;
 
-	for (column = 0; column <= 9; column++)
+	for (row = 0; row <= 9; row++)
 	{
-		_putchar('0');
-
-		for (row = 1; row <= 9; row++)
+		for (col = 0; col <= 9; col++)
 		{
-			_putchar(',');
-			_putchar(' ');
+			res = row * col;
 
-			product = column * row;
+			if (col > 0)
+				_putchar(res > 9 ? (res / 10) + '0' : ' ');
+			_putchar((res % 10) + '0');
 
-			if (product <= 9)
+			if (col < 9)
+			{
+				_putchar(',');
 				_putchar(' ');
-			else
-				_putchar((product / 10) + '0');
-			_putchar((product % 10) + '0');
+			}
 		}
 		_putchar('\n');
 	}

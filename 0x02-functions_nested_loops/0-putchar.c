@@ -1,20 +1,18 @@
 #include "main.h"
+#include <stdio.h>
+#include <string.h>
 
 /**
- * main - Print out _putchar
- * Return: Always 0 (success)
+ * main - The entry of the function that prints putchar
+ * Return: 0 for successful execution
  */
-
 int main(void)
 {
-	_putchar('_');
-	_putchar('p');
-	_putchar('u');
-	_putchar('t');
-	_putchar('c');
-	_putchar('h');
-	_putchar('a');
-	_putchar('r');
-	_putchar('\n');
+	char p[] = "_putchar\n";
+	int c, n = strlen(p);
+
+	for (c = 0; c < n; c++)
+		_putchar(p[c]);
+
 	return (0);
 }

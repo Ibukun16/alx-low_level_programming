@@ -1,41 +1,47 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * main - Print the first 98 fibonacci sequence
+ * fibonacci - Print the a fibonacci sequence
+ * @val: The value to evaluate
  * Return: Return success(0).
  */
 
-int main(void)
+int fibonacci(long unsigned int val)
 {
-	int c;
-	unsigned long int m, n, dm, rm, dn, rn;
+	unsigned long int count, overfl = 0, tmp1, tmp2;
+	unsigned long int n1 = 1, n2 = 0, next1 = 2, next2 = 0;
 
-	m = 1;
-	n = 2;
-
-	printf("%lu", m);
-	for (c = 1; c < 91; c++)
+	printf("%lu, %lu", n1, next1);
+	for (count = 3; count <= val; count++)
 	{
-		printf(", %lu", n);
+		n1 += next1 + overfl;
 
-		n = n + m;
-		m = n - m;
-	}
-	dm = m / 1000000000;
-	rm = m % 1000000000;
-	dn = n / 1000000000;
-	rn = n % 1000000000;
+		if (n1 > 999999999)
+		{
+			overfl = 1;
+			n1 %= 1000000000;
+		}
 
-	c = 92;
-	while (c < 99)
-	{
-		printf(", %lu", dn + (rn / 1000000000));
-		printf("%lu", rn % 1000000000);
-		dn = dm + dn;
-		dm = dn - dm;
-		rn = rn + rm;
-		rm = rn - rm;
-		c++;
+		n2 += next2 + overfl;
+
+		if (n2 > 999999999)
+		{
+			overfl = 1;
+			n2 %= 1000000000;
+		}
+
+		if (n2 > 0)
+			printf(", %lu%09lu", n2, n1);
+		else
+			printf(", %lu", n1);
+
+		tmp1 = next1;
+		next1 = n1;
+		n1 = tmp1;
+
+		tmp2 = next2;
+		next2 = n2;
+		n2 = tmp2;
 	}
 	printf("\n");
 	return (0);
