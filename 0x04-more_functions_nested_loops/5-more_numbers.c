@@ -1,25 +1,22 @@
 #include "main.h"
+#include <stdio.h>
+
 /**
- * more_numbers - print out ten rows of numbers
- * from 1 to 14.
- * Return: success values
+ * more_numbers - A functon that print set of number 10 times
+ * Return: void
  */
 void more_numbers(void)
 {
 	int c, n;
 
-	c = 0;
-	while (c < 10)
+	for (n = 0; n < 10; n++)
 	{
-		n = 0;
-		while (n <= 14)
+		for (c = 0; c <= 14; c++)
 		{
-			if (n > 9)
-				_putchar(n / 10 + '0');
-			_putchar(n % 10 + '0');
-			n++;
+			if (c > 9)
+				_putchar('0' + c / 10);
+			_putchar('0' + c % 10);
 		}
 		_putchar('\n');
-		c++;
 	}
 }
