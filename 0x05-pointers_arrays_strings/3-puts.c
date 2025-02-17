@@ -1,18 +1,21 @@
 #include "main.h"
+#include <stdio.h>
+
 /**
- * _puts - print a string and terminate at a new line.
- * @str: The string in focus.
+ * _puts - A function that prints a string
+ * @str: The string variable
  *
- * Return: success (0).
+ * Return: Nothing.
  */
 void _puts(char *str)
 {
-	int i = 0;
+	int c = 0;
 
-	while (str[i] != '\0')
+	while (str[c] != '\0')
 	{
-		_putchar(str[i]);
-		i++;
+		_putchar(str[c]);
+		c++;
 	}
 	_putchar('\n');
 }
+
