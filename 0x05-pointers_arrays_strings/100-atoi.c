@@ -9,16 +9,14 @@
  */
 int _atoi(char *s)
 {
-	int i, n = 1;
-	unsigned int p = 0;
+	int i, sign = 1;
+	unsigned int result = 0;
 
 	for (i = 0; !(s[i] >= '0' && s[i] <= '9') && s[i] != '\0'; i++)
-		if (s[i] == '-')
-			n *= -1;
+		sign *= (s[i] == '-') ? -1 : 1;
 
 	for (; (s[i] >= '0' && s[i] <= '9' && s[i] != '\0'); i++)
-		p = (p * 10) + (s[i] - '0');
+		result = (result * 10) + (s[i] - '0');
 
-	p *= n;
-	return (p);
+	return (result * sign);
 }
