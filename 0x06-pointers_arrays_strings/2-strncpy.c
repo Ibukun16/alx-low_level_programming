@@ -5,25 +5,19 @@
  * exactly like strncpy in standard library
  * @dest: The destination value
  * @src: The source value
- * @n: The number of times to copy
+ * @n: The number of times to copy the source
  *
  * Return: char value
  */
 char *_strncpy(char *dest, char *src, int n)
 {
-	int a = 0;
+	int count = 0;
 
-	while (src[a] != '\0' && a < n)
-	{
-		dest[a] = src[a];
-		a++;
-	}
+	for (; src[count] != '\0' && count < n; count++)
+		dest[count] = src[count];
 
-	while (a < n)
-	{
-		dest[a] = '\0';
-		a++;
-	}
+	for (; count < n; count++)
+		dest[count] = '\0';
 
 	return (dest);
 }

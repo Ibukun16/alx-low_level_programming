@@ -1,34 +1,27 @@
 #include "main.h"
+#include <stdio.h>
+
 /**
- * *cap_string - A function that capitalizes all words
- * of a string
- * @s: The string in focus
+ * cap_string - A function that capitalize all words of a string
+ * @str: The string of words to capitalize
  *
- * Return: Success only
+ * Return: capitalize string.
  */
-char *cap_string(char *s)
+char *cap_string(char *str)
 {
-	int x, y;
-	char sp[13] = {' ', '\t', '\n', ',', ';', '.', '!',
-	     '?', '"', '(', ')', '{', '}',};
+	int idx, count;
+	char separator[14] = {' ', '\t', '\r', '\n', ',', '.', '!', '?',
+		'"', '(', ')', '{', '}', ';'};
 
-	for (x = 0; s[x] != '\0'; x++)
+	for (idx = 0; str[idx] != '\0'; idx++)
 	{
-		if (x == 0 && s[x] >= 'a' && s[x] <= 'z')
-		{
-			s[x] -= 32;
-		}
+		if (idx == 0 && str[idx] >= 'a' && str[idx] <= 'z')
+			str[idx] -= 32;
 
-		for (y = 0; y < 13; y++)
-		{
-			if (s[x] == sp[y])
-			{
-				if (s[x + 1] >= 'a' && s[x + 1] <= 'z')
-				{
-					s[x + 1] -= 32;
-				}
-			}
-		}
+		for (count = 0; count < 14; count++)
+			if (str[idx] == separator[count])
+				if (str[idx + 1] >= 'a' && str[idx + 1] <= 'z')
+					str[idx + 1] -= 32;
 	}
-	return (s);
+	return (str);
 }

@@ -1,31 +1,25 @@
 #include "main.h"
+#include <stdio.h>
+
 /**
- * *rot13 - Function that encodes a string using rot13.
- * @s: the string to encode
+ * rot13 - A function that encodes a string using rot13
+ * @str: Pointer to the string
  *
- * Return: The encoded result.
+ * Return: The encoded string
  */
-char *rot13(char *s)
+char *rot13(char *str)
 {
-	int i = 0, j;
+	int count;
 
-	char a[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char b[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
-
-	while (s[i] != '\0')
-	{
-		j = 0;
-
-		while (a[j] != '\0')
+	for (count = 0; str[count] != '\0'; count++)
+		if ((str[count] >= 'a' && str[count] <= 'z') ||
+			    (str[count] >= 'A' && str[count] <= 'Z'))
 		{
-			if (s[i] == a[j])
-			{
-				s[i] = b[j];
-				break;
-			}
-			j++;
+			if ((str[count] >= 'a' && str[count] < 'n') ||
+					(str[count] >= 'A' && str[count] < 'N'))
+				str[count] += 13;
+			else
+				str[count] -= 13;
 		}
-		i++;
-	}
-	return (s);
+	return (str);
 }
