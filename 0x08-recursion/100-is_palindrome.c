@@ -1,47 +1,44 @@
 #include "main.h"
+#include <stdio.h>
+
 /**
- * is_palindrome - A function that confirms that a string is palindrome.
- * @s: The string to check
+ * is_palindrome - A function that determines if a string is palindrome
+ * @s: Pointer to the string to check
  *
- * Return: 0 for non-palindrome and 1 for palindrome.
+ * Return: 1 if string is palindrome, else 0.
  */
 int is_palindrome(char *s)
 {
-	int l;
+	int len = _strlen_recursion(s) - 1;
 
-	l = strlen_recursion(s) - 1;
-	return (check_for_pal(0, l, s));
+	return (check_palindrome(s, 0, len));
 }
+
 /**
- * check_for_pal - A function that checks for palindrome in a string.
- * @s: The string to check for palindrome.
- * @i: integer that indicate count of a string from biginning.
- * @l: integer that indicate count of a string backward from the end.
+ * _strlen_recursion - Function that determines the length of the given
+ * string.
+ * @s: The string variable
  *
- * Return: 0 for non-palindrome and 1 for palindrome
+ * Return: The string length.
  */
-int check_for_pal(int i, int l, char *s)
+int _strlen_recursion(char *s)
 {
-	if (i >= l)
+	return (*s == '\0' ? 0 : 1 + _strlen_recursion(s + 1));
+}
+
+/**
+ * check_palindrome - A function that checks for palindrome in a string
+ * @str: The string to check for palindrome
+ * @start: The count of the string from 0
+ * @end: The backward count of the string from the end
+ *
+ * Return: 0 for non-palindrome and 1 for palindrome.
+ */
+int check_palindrome(char *str, int start, int end)
+{
+	if (start >= end)
 		return (1);
-	if (s[i] != s[l])
+	if (*(str + start) != *(str + end))
 		return (0);
-	return (check_for_pal(i + 1, l - 1, s));
-}
-/**
- * strlen_recursion - A function that determine the length of a give string.
- * @str: The string to determine its length
- *
- * Return: Length of the string.
- */
-int strlen_recursion(char *str)
-{
-	int l = 0;
-
-	if (*str)
-	{
-		l++;
-		l += strlen_recursion(str + 1);
-	}
-	return (l);
+	return (check_palindrome(str, start + 1, end - 1));
 }

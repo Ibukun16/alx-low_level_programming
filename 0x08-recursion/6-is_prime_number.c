@@ -1,30 +1,36 @@
 #include "main.h"
+#include <stdio.h>
+
 /**
- * is_prime_number - A function that determines if a number
- * is a prime number
- * @n: The number to determine its status
+ * is_prime_number - A function that returns 1 if input integer
+ * is a prime number.
+ * @n: The integer variable to check
  *
- * Return: 1 for prime number, 0 for non-prime number.
+ * Return: 1 for prime number, else 0.
  */
 int is_prime_number(int n)
 {
-	if (n < 2)
+	if (n <= 1)
 		return (0);
-	return (check_if_prime(n, 2));
+	if (n == 2 || n == 3)
+		return (1);
+	if (n % 2 == 0 || n % 3 == 0)
+		return (0);
+	return (check_prime(n, 5));
 }
 
 /**
- * check_if_prime - A function that checks for prime number.
- * @i: The number to check its status.
+ * check_prime - A helper function to check for prime number
+ * @n: The number to check
  * @d: The divisor.
  *
- * Return: 0 for non prime number and 1 for prime number.
+ * Return: 1 for prime number else 0.
  */
-int check_if_prime(int i, int d)
+int check_prime(int n, int d)
 {
-	if (d > i / 2)
+	if (d * d > n)
 		return (1);
-	if ((d == 2 || d == 3 || d == 5) && i % d == 0)
+	if (n % d == 0)
 		return (0);
-	return (check_if_prime(i, d + 1));
+	return (check_prime(n, d + 2));
 }

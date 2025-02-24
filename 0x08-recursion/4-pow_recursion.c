@@ -1,22 +1,19 @@
 #include "main.h"
+#include <stdio.h>
+
 /**
- * _pow_recursion - A function that find the value of x raise to power y
- * by recursion.
- * @x: The number we want to find its value.
- * @y: The power of the number x.
+ * _pow_recursion - A function that returns the value of x raised
+ * to the power of y.
+ * @x: The number variable to be raised.
+ * @y: The number variable that represent the power
  *
- * Return: 0 for success and -1 for errror.
+ * Return: The value of x raised to the power of y.
  */
 int _pow_recursion(int x, int y)
 {
-	int p;
-
-	if (x == 0)
-		return (0);
-	if (y == 0)
-		return (1);
 	if (y < 0)
 		return (-1);
-	p = x * _pow_recursion(x, y - 1);
-	return (p);
+	else if (y == 0)
+		return (1);
+	return (x * _pow_recursion(x, y - 1));
 }

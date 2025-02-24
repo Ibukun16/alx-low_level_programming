@@ -1,19 +1,18 @@
 #include "main.h"
+#include <stdio.h>
+
 /**
- * factorial - A function that find the factorial of a number
- * by recursion.
- * @n: The number whose factorial we desire.
+ * factorial - A function that returns the factorial of a given number
+ * @n: The number variable
  *
- * Return: 0 for success, -1 for error.
+ * Return: The factorial result.
  */
 int factorial(int n)
 {
-	int fac;
-
 	if (n < 0)
 		return (-1);
-	if (n == 0)
+	else if (n == 0)
 		return (1);
-	fac = n * factorial(n - 1);
-	return (fac);
+	else
+		return (n * factorial(n - 1));
 }

@@ -1,19 +1,19 @@
-#ifndef MAIN_HEADER_FILE
-#define MAIN_HEADER
+#ifndef _MAIN_HEADER_
+#define _MAIN_HEADER_
 
 int _putchar(char c);
-void _puts_recursion(char *s);
-void _print_rev_recursion(char *s);
-int _strlen_recursion(char *s);
 int factorial(int n);
-int _pow_recursion(int x, int y);
-int _sqrt_recursion(int n);
-int find_sqrt(int r, int q);
-int is_prime_number(int n);
-int check_if_prime(int i, int d);
 int is_palindrome(char *s);
-int check_for_pal(int i, int l, char *s);
-int strlen_recursion(char *str);
+int is_prime_number(int n);
+int _sqrt_recursion(int n);
+int is_palindrome(char *s);
+void _puts_recursion(char *s);
+int check_prime(int n, int d);
+int _strlen_recursion(char *s);
 int wildcmp(char *s1, char *s2);
+int _pow_recursion(int x, int y);
+void _print_rev_recursion(char *s);
+int _sqrt_calculator(int n, int r);
+int check_palindrome(char *str, int start, int end);
 
-#endif /* MAIN_HEADER_FILE */
+#endif /** _MAIN_HEADER_ **/
