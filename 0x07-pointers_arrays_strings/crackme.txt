@@ -1,0 +1,5 @@
+run strings "$Filename" | less
+look for the line "Access Granted"
+copy the binary code before the "Access Granted"
+and carry out reverse engineering or binary code or
+do md5lib hash reverse on the code.
