@@ -10,9 +10,7 @@
  */
 int main(int argc, char **argv)
 {
-	int cents, count, n, coin[5] = {25, 10, 5, 2, 1};
-
-	cents = atoi(argv[1]);
+	int cents, count, n = 0, coin[] = {25, 10, 5, 2, 1};
 
 	if (argc != 2)
 	{
@@ -20,10 +18,12 @@ int main(int argc, char **argv)
 		return (1);
 	}
 
+	cents = atoi(argv[1]);
+
 	if (cents < 0)
 	{
 		printf("0\n");
-		return (1);
+		return (0);
 	}
 
 	for (count = 0; count < 5 && cents; count++)
