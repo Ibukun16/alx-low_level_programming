@@ -8,8 +8,9 @@
  *
  * Return: 0 for successful execution, else 1 for otherwise
  */
-int main(int argc, char **argv __attribute__((unused)))
+int main(int argc, char **argv )
 {
+	void(argv);
 	printf("%d\n", argc - 1);
 	return (0);
 }
