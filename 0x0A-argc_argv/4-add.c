@@ -1,35 +1,33 @@
-#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
+
 /**
- * main - a program that add up two positive numbers.
- * @argc: the count of number of arguments on the commandline.
- * @argv: A vector array of the arguments string.
+ * main - The entry point to the function
+ * @argc: The count of the command line arguments
+ * @argv: The string array of the command line arguments
  *
- * Return: 0 for success, 1 for error.
+ * Return: 0 for successful execution, else 1
  */
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-	int sum = 0, a, b;
+	int idx, n, add = 0;
 
 	if (argc < 2)
-		printf("0\n");
-	else
 	{
-		for (a = 1; a < argc; a++)
-		{
-			for (b = 0; argv[a][b]; b++)
-			{
-				if (isdigit(argv[a][b]) == 0)
-				{
-					printf("Error\n");
-					return (1);
-				}
-			}
-			sum += atoi(argv[a]);
-		}
-		printf("%d\n", sum);
+		printf("%d\n", argc - 1);
+		return (1);
 	}
+
+	for (idx = 1; idx < argc; idx++)
+	{
+		for (n = 0; argv[idx][n]; n++)
+			if (argv[idx][n] < 48 || argv[idx][n] > 57)
+			{
+				printf("Error\n");
+				return (1);
+			}
+		add += atoi(*(argv + idx));
+	}
+	printf("%d\n", add);
 	return (0);
 }

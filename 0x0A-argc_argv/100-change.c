@@ -1,36 +1,36 @@
-#include "main.h"
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
+
 /**
- * main - A program that determine the minimum number of coins
- * to make change for an amount of money.
- * @argc: The count of number of arguments given to the command line.
- * @argv: An array containing the argument strings.
+ * main - The entry point to the function
+ * @argc: The count of the command line arguments
+ * @argv: The string array of the command line arguments
  *
- * Return: 0 for success and 1 for error.
+ * Return: 0 for successful execution, else 1
  */
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-	int amt, c, i, change = 0;
-	int coin[] = {25, 10, 5, 2, 1};
+	int cents, count, n, coin[5] = {25, 10, 5, 2, 1};
+
+	cents = atoi(argv[1]);
 
 	if (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	if (atoi(argv[1]) < 1)
-		printf("0\n");
-	else
+
+	if (cents < 0)
 	{
-		amt = atoi(argv[1]);
-		for (i = 0; i < 5 && amt; i++)
-		{
-			c = amt / coin[i];
-			change += c;
-			amt -= c * coin[i];
-		}
-		printf("%d\n", change);
+		printf("0\n");
+		return (1);
 	}
+
+	for (count = 0; count < 5 && cents; count++)
+	{
+		n += cents / coin[count];
+		cents %= coin[count];
+	}
+	printf("%d\n", n);
 	return (0);
 }

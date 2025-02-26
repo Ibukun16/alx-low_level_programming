@@ -1,15 +1,15 @@
-#include "main.h"
 #include <stdio.h>
+#include <stdlib.h>
+
 /**
- * main - A program that prints its own name.
- * @argc: The count of the number of argument supplied to the command line.
- * @argv: An array vector of the argument strings.
+ * main - The entry point into the function
+ * @argc: the count of the command line argument
+ * @argv: The string array of the command line argument
  *
- * Return: 0 for success.
+ * Return: 0 for successful execution and 1 for otherwise
  */
-int main(int argc, char *argv[])
+int main(int argc __attribute__((unused)), char **argv)
 {
-	if (argc >= 1)
-		printf("%s\n", argv[0]);
+	printf("%s\n", *argv);
 	return (0);
 }

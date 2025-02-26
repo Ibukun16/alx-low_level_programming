@@ -1,6 +1,5 @@
-#ifndef MAIN_HEADER_FILE
-#define MAIN_HEADER_FILE
+#ifndef _MAIN_HEADER_
+#define _MAIN_HEADER_
 
-int main(int argc, char *argv[]);
 
-#endif /* MAIN_HEADER_FILE */
+#endif /** _MAIN_HEADER_ **/
