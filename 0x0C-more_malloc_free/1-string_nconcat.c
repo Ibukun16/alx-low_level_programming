@@ -6,8 +6,9 @@
  * string_nconcat - A function that concatenate two strings
  * @s1: Pointer to the first string variable
  * @s2: Pointer to the second string variable
- *
  * @n: The integer variable of number of bytes to concatenate in s2.
+ *
+ * Return: The concatenated strings, else NULL.
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
