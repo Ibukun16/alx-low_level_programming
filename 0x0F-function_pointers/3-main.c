@@ -10,23 +10,27 @@
  */
 int main(int argc, char *argv[])
 {
-	int arg1, arg3;
+	int arg1, arg3, result, (*func)(int, int);
+	char operator;
 
 	if (argc == 4)
 	{
 		arg1 = atoi(argv[1]);
+		func = get_op_func(argv[2]);
 		arg3 = atoi(argv[3]);
-		if (get_op_func(argv[2]) == NULL)
+		if (func == NULL)
 		{
 			printf("Error\n");
 			exit(99);
 		}
-		if ((*argv[2] == '/' || *argv[2] == '%') && arg3 == 0)
+		operator = *argv[2];
+		if ((operator == '/' || operator == '%') && arg3 == 0)
 		{
 			printf("Error\n");
 			exit(100);
 		}
-		printf("%d\n", get_op_func(argv[2])(arg1, arg3));
+		result = func(arg1, arg3);
+		printf("%d\n", result);
 	}
 	else
 	{
