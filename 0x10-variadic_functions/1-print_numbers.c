@@ -7,7 +7,7 @@
  * @separator: Pointer to the string variable holding the numbers separator
  * @n: The count of the numbers to print.
  *
- * Return: 0 for successful execution, else 1.
+ * Return: void.
  */
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
