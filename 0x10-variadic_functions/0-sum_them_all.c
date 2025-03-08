@@ -6,7 +6,7 @@
  * sum_them_all - A fucntion that returns the sum of all its parameters
  * @n: The number of parameters supplied
  *
- * Return: 0 for successful execution, else 1.
+ * Return: The sum calculated, else NULL.
  */
 int sum_them_all(const unsigned int n, ...)
 {
