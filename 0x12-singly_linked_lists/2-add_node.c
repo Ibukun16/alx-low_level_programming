@@ -14,14 +14,14 @@ list_t *add_node(list_t **head, const char *str)
 {
 	list_t *new_node;
 	char *copy;
-	int str_len, n;
+	int n;
 
 	if (!str || !head)
 		return (NULL);
 	copy = strdup(str);
 	if (!copy)
 		return (NULL);
-	
+
 	for (n = 0; str[n] != 0; n++)
 		;
 
