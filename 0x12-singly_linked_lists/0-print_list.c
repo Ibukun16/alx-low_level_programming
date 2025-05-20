@@ -6,8 +6,8 @@
  * print_list - A function that prints all the elements of a list_t list
  * @h: The linked list
  *
- * Description: Iterates over each element of a linked list and print its content
- * If an element string is NULL, print (nil);
+ * Description: Iterates over each element of a linked list and print
+ * its content if an element string is NULL, print (nil);
  *
  * Return: The number of nodes of the linked list traversed
  */
