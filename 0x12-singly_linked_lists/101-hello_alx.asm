@@ -12,7 +12,7 @@ main:
 	mov rdi, message
 	xor eax, eax		; Clear rax to indicate no floating point args
 	call printf
-	
+
 	; Return 0 from main
 	mov eax, 0
 	ret
