@@ -1,7 +1,6 @@
 #include "lists.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 /**
  * free_listint2 - A function that frees a listint_t list
@@ -16,11 +15,11 @@ void free_listint2(listint_t **head)
 	if (head == NULL)
 		return;
 
-	if (*head != NULL)
+	while (*head != NULL)
 	{
-		tmp = (*head)->next;
-		free(*head);
-		*head = tmp;
+		tmp = *head;
+		*head = (*head)->next;
+		free(tmp);
 	}
-	*head = NULL;
+	head = NULL;
 }
