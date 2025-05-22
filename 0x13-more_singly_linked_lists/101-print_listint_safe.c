@@ -11,26 +11,40 @@
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *current, *checker;
-	size_t i = 0;
+	const listint_t **checked = NULL;
+	const listint_t **new_checked;
+	size_t i, count = 0, capacity = 1024;
 
-	current = head;
-	while (current != NULL)
+	checked = malloc(sizeof(listint_t *) * capacity);
+	if (!checked)
+		exit(98);
+
+	while (head != NULL)
 	{
-		printf("[%p] %d\n", (void *)current, current->n);
-		i++;
-
-		checker = head;
-		while (checker != current)
+		for (i = 0; i < count; i++)
 		{
-			if (checker == current->next)
+			if (head == checked[i])
 			{
-				printf("->[%p] %d\n", (void *)checker, checker->n);
-				return (i);
+				printf("-> [%p] %d\n", (void *)head, head->n);
+				free(checked);
+				return (count);
 			}
-			checker = checker->next;
 		}
-		current = current->next;
+		if (count == capacity)
+		{
+			capacity *= 2;
+			new_checked = realloc(checked, sizeof(listint_t *) * capacity);
+			if (!new_checked)
+			{
+				free(checked);
+				exit(98);
+			}
+			checked = new_checked;
+		}
+		checked[count++] = (listint_t *)head;
+		printf("[%p] %d\n", (void *)head, head->n);
+		head = head->next;
 	}
-	return (i);
+	free(checked);
+	return (count);
 }
