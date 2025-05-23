@@ -4,7 +4,7 @@
 #include <string.h>
 
 /**
- * size_t free_listint_safe - A function that frees a listint linked list
+ * free_listint_safe - A function that frees a listint linked list
  * @h: Double pointer to the head of the linked list
  *
  * Return: The size of the list that was free'd
@@ -19,8 +19,7 @@ size_t free_listint_safe(listint_t **h)
 		return (0);
 	checked = malloc(sizeof(listint_t *) * capacity);
 	if (checked == NULL)
-		exit (98);
-
+		exit(98);
 	current = *h;
 	while (current != NULL)
 	{
@@ -51,5 +50,5 @@ size_t free_listint_safe(listint_t **h)
 	}
 	free(checked);
 	*h = NULL;
-	return count;
+	return (count);
 }
