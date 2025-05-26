@@ -1,34 +1,53 @@
 #include "main.h"
+
 /**
- * read_textfile - A function that reads a text file and print
- *	the output to the POSIX standard output.
- * @filename: A pointer to the filename.
- * @letters: The number of letters it could read and print.
+ * read_textfile - A function that read a text file and prints it to the POSIX
+ * standard output
+ * @filename: Pointer to the filename variable
+ * @letters: The variable containing the number of characters to write
  *
- * Return: 0 if the function fails or if the filename is NULL
- *	o/wrt - the exact number of bytes read from the textfile.
+ * Return: The number of letters it could read and print, if file cannot
+ * be opened or read, return 0,
+ * if filename is NULL, return 0,
+ * if write fails or does not write the expected amount of bytes, return 0
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	ssize_t o, wrt, rd;
-	char (*buff);
+	ssize_t op, wr, rd;
+	char (*buffer);
 
 	if (filename == NULL)
 		return (0);
-	buff = malloc(sizeof(char) * letters);
-	if (!buff)
-		return (0);
-	o = open(filename, O_RDONLY);
-	rd = read(o, buff, letters);
-	wrt = write(STDOUT_FILENO, buff, rd);
 
-	if (o == -1 || rd == -1 || wrt == -1 || wrt != rd)
+	op = open(filename, O_RDONLY);
+	if (op == -1)
+		return (0);
+
+	buffer = malloc(sizeof(char) * letters);
+	if (buffer == NULL)
 	{
-		free(buff);
+		close(op);
 		return (0);
 	}
-	free(buff);
-	close(o);
 
-	return (wrt);
+	rd = read(op, buffer, letters);
+	if (rd == -1)
+	{
+		free(buffer);
+		close(op);
+		return (-1);
+	}
+
+	wr = write(STDOUT_FILENO, buffer, rd);
+	if (wr != rd)
+	{
+		free(buffer);
+		close(op);
+		return (0);
+	}
+
+	free(buffer);
+	close(op);
+
+	return (wr);
 }
