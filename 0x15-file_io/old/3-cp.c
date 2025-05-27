@@ -9,7 +9,7 @@
 int cp(char *file_from, char *file_to)
 {
 	int fd, des, wrt, rd;
-	char *buff[1024];
+	char buff[1024];
 
 	des = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (des == -1 || buff == NULL)
