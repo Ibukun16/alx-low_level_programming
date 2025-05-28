@@ -184,20 +184,20 @@ void print_osabi(unsigned char *e_ident)
  *
  * Return: void.
  */
-void print_abi(unsigned char *e_ident)
+void print_abiversion(unsigned char *e_ident)
 {
 	printf("  ABI Version:                       %d\n",
 		e_ident[EI_ABIVERSION]);
 }
 
 /**
- * print_typ - A function that print the type of an ELF header.
+ * print_type - A function that print the type of an ELF header.
  * @e_ident: A pointer to the array containing the ELF classs.
  * @e_type: The ELF type.
  *
  * Return: void.
  */
-void print_typ(unsigned int e_type, unsigned char *e_ident)
+void print_type(unsigned int e_type, unsigned char *e_ident)
 {
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 		e_type >>= 8;
@@ -307,8 +307,8 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	print_data(header->e_ident);
 	print_version(header->e_ident);
 	print_osabi(header->e_ident);
-	print_abi(header->e_ident);
-	print_typ(header->e_type, header->e_ident);
+	print_abiversion(header->e_ident);
+	print_type(header->e_type, header->e_ident);
 	print_entry(header->e_entry, header->e_ident);
 
 	free(header);
